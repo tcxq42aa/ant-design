@@ -20,6 +20,12 @@
   display: inline-block;
   height: 100%;
   vertical-align: top;
+  font-size: 0;
+  &::after {
+    font-size: 14px;
+    display: inline-block;
+    content: '-';
+  }
 }
 
 .@{calendar-prefix-cls}-range {
@@ -67,6 +73,12 @@
     height: @input-box-height;
     line-height: @input-box-height;
     color: @text-color-secondary;
+    font-size: 0;
+    &::after {
+      font-size: 14px;
+      display: inline-block;
+      content: '-';
+    }
   }
 
   &-right .@{calendar-prefix-cls}-date-input-wrap {

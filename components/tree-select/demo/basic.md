@@ -41,6 +41,14 @@ class Demo extends React.Component {
           <TreeNode value="parent 1-0" title="parent 1-0" key="0-1-1">
             <TreeNode value="leaf1" title="my leaf" key="random" />
             <TreeNode value="leaf2" title="your leaf" key="random1" />
+            <TreeNode value="leaf3" title="your leaf has children" key="random3">
+              <TreeNode value="leaf3-1" title="leaf3-1" key="leaf3-1" />
+              <TreeNode value="leaf3-2" title="leaf3-2" key="leaf3-2" />
+              <TreeNode value="leaf3-3" title="leaf3-3" key="leaf3-3">
+                <TreeNode value="leaf3-3-1" title="leaf3-3-1" key="leaf3-3-1" />
+                <TreeNode value="leaf3-3-2" title="leaf3-3-2" key="leaf3-3-2" />
+              </TreeNode>
+            </TreeNode>
           </TreeNode>
           <TreeNode value="parent 1-1" title="parent 1-1" key="random2">
             <TreeNode value="sss" title={<b style={{ color: '#08c' }}>sss</b>} key="random3" />
