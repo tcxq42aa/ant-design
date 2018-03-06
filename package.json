@@ -22,6 +22,9 @@
     "type": "git",
     "url": "https://github.com/ant-design/ant-design"
   },
+  "publishConfig": {
+    "registry": "http://registry.npm.dooioo.cn"
+  },
   "bugs": {
     "url": "https://github.com/ant-design/ant-design/issues"
   },
