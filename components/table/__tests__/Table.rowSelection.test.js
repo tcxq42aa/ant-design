@@ -77,6 +77,7 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       getCheckboxProps: record => ({
         disabled: record.name === 'Lucy',
+        name: record.name,
       }),
     };
 
@@ -84,7 +85,9 @@ describe('Table.rowSelection', () => {
     const checkboxes = wrapper.find('input');
 
     expect(checkboxes.at(1).props().disabled).toBe(false);
+    expect(checkboxes.at(1).props().name).toEqual(data[0].name);
     expect(checkboxes.at(2).props().disabled).toBe(true);
+    expect(checkboxes.at(2).props().name).toEqual(data[1].name);
   });
 
   it('works with pagination', () => {
@@ -151,11 +154,11 @@ describe('Table.rowSelection', () => {
     wrapper.find('input').last().simulate('change', { target: { checked: true } });
 
     expect(handleChange).toBeCalledWith([3], [{ key: 3, name: 'Jerry' }]);
-    expect(handleSelect).toBeCalledWith(
-      { key: 3, name: 'Jerry' },
-      true,
-      [{ key: 3, name: 'Jerry' }]
-    );
+    expect(handleSelect.mock.calls.length).toBe(1);
+    expect(handleSelect.mock.calls[0][0]).toEqual({ key: 3, name: 'Jerry' });
+    expect(handleSelect.mock.calls[0][1]).toEqual(true);
+    expect(handleSelect.mock.calls[0][2]).toEqual([{ key: 3, name: 'Jerry' }]);
+    expect(handleSelect.mock.calls[0][3].type).toBe('change');
   });
 
   it('fires selectAll event', () => {
